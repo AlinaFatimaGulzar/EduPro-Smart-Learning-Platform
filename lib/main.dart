@@ -1,22 +1,34 @@
-import 'package:edupro/screens/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'screens/All_Category_Screen.dart';
+import 'screens/popular_Courses_Screen.dart';
 
 void main() {
-  runApp(EduProApp());
+  runApp(const MyApp());
 }
 
-class EduProApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EDUPRO',
+      title: 'Education App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF6A5AE0),
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Inter',
+        primarySwatch: Colors.blue,
+        fontFamily: 'Poppins',
+        scaffoldBackgroundColor: const Color(0xFFF8F9FA),
+        useMaterial3: true,
       ),
-      home: SplashScreen(),
+      initialRoute: '/',
+      routes: {
+       // '/': (context) => const HomeScreen(),
+        '/all-category': (context) => const AllCategoryScreen(),
+        '/popular-courses': (context) => const PopularCoursesScreen(),
+      },
     );
   }
 }
+
+// keep rest of your HomeScreen code here ...
